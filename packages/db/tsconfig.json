@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig/base.tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "#root/*": ["./src/*"],
+      "#test/*": ["./test/*"]
+    }
+  },
+  "include": ["src", "test", "drizzle.config.ts"],
+  "exclude": ["node_modules"]
+}

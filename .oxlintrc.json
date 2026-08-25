@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "curly": "error",
+    "no-console": ["warn", { "allow": ["error"] }],
+    "no-else-return": "warn",
+    "no-param-reassign": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@repo/*/test", "#test/*"]
+      }
+    ],
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "typescript/no-explicit-any": "off",
+    "typescript/no-extraneous-class": "off",
+    "typescript/no-non-null-assertion": "off",
+    "unicorn/no-array-for-each": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/test/**", "**/*.test.ts"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
+}

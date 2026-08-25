@@ -1,0 +1,30 @@
+services:
+  dev:
+    image: postgres:14.5-alpine
+    ports:
+      - "5442:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ticket_board_dev
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d ticket_board_dev -h 127.0.0.1']
+      interval: 1s
+      timeout: 2s
+      retries: 20
+      start_period: 2s
+
+  test:
+    image: postgres:14.5-alpine
+    ports:
+      - "5443:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ticket_board_test
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d ticket_board_test -h 127.0.0.1']
+      interval: 1s
+      timeout: 2s
+      retries: 20
+      start_period: 2s
