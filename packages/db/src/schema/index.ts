@@ -1,2 +1,2 @@
 export * from './relations.js';
-export * from './tickets.entity.js';
+export * from './quests.entity.js';

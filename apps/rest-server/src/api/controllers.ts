@@ -1,3 +1,3 @@
-import { TicketsController } from './tickets/tickets.controller.js';
+import { QuestsController } from './quests/quests.controller.js';
 
-export const Controllers = [TicketsController];
+export const Controllers = [QuestsController];

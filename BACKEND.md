@@ -35,10 +35,10 @@ the OpenAPI docs are at `/api/v1/docs`.
 ## Testing
 
 ```bash
-bun run test                                                          # every workspace
-bunx nx test @repo/rest-server                                        # just rest-server
-bunx nx test @repo/rest-server -t "should create ticket"              # filter by test name
-bunx nx test @repo/rest-server src/api/tickets/tickets.post.test.ts   # a single file
+bun run test                                                        # every workspace
+bunx nx test @repo/rest-server                                      # just rest-server
+bunx nx test @repo/rest-server -t "should create quest"             # filter by test name
+bunx nx test @repo/rest-server src/api/quests/quests.post.test.ts   # a single file
 ```
 
 Tests run against the `test` Postgres container (`test.env`), truncated between tests (see
@@ -63,7 +63,7 @@ Clean Architecture, one feature spanning three layers under `apps/rest-server/sr
 
 `api/` and `data/` never import from each other — both depend on `domain/`, never the other way around.
 
-## Tickets feature
+## Quests feature
 
-The only feature implemented so far. `GET /tickets` (optional `status` filter, paginated), `GET /tickets/:id`,
-and `POST /tickets` — see [`apps/rest-server/src/api/tickets/`](apps/rest-server/src/api/tickets/).
+The only feature implemented so far. `GET /quests` (optional `status` filter, paginated), `GET /quests/:id`,
+and `POST /quests` — see [`apps/rest-server/src/api/quests/`](apps/rest-server/src/api/quests/).

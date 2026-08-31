@@ -1,4 +1,4 @@
 import { defineRelations } from 'drizzle-orm';
-import * as ticketsSchema from './tickets.entity.js';
+import * as questsSchema from './quests.entity.js';
 
-export const relations = defineRelations({ ...ticketsSchema });
+export const relations = defineRelations({ ...questsSchema });

@@ -1,1 +1,1 @@
-export * from './tickets.seed.js';
+export * from './quests.seed.js';

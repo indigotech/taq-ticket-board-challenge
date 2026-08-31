@@ -2,22 +2,22 @@ import { afterAll, afterEach, beforeAll, describe, expect, it, mock, spyOn } fro
 import { DatabaseIdGenerator, dbClient } from '@repo/db';
 import { clearDatabase } from '@repo/db/test';
 import { API_PREFIX } from '#api/rest.config.js';
-import type { Ticket, TicketInput } from '#domain/model/tickets.model.js';
+import type { Quest, QuestInput } from '#domain/model/quests.model.js';
 import { checkErrors } from '#test/checkers/checker.test.js';
-import { checkTicket } from '#test/checkers/tickets.checker.test.js';
+import { checkQuest } from '#test/checkers/quests.checker.test.js';
 import { ValidationError } from '#test/checkers/validation.error.test.js';
 import { RequestMaker } from '#test/request-maker.test.js';
 
-describe('POST /tickets', () => {
-  const endpoint = `${API_PREFIX}/tickets`;
-  const ticketId = 't_123';
+describe('POST /quests', () => {
+  const endpoint = `${API_PREFIX}/quests`;
+  const questId = 'q_123';
   const invalidDataMessage = 'Os dados enviados são inválidos. Por favor, reveja as informações.';
 
-  let requestMaker: RequestMaker<Ticket, TicketInput>;
+  let requestMaker: RequestMaker<Quest, QuestInput>;
 
   beforeAll(() => {
     requestMaker = new RequestMaker();
-    spyOn(DatabaseIdGenerator, 'generate').mockReturnValue(ticketId);
+    spyOn(DatabaseIdGenerator, 'generate').mockReturnValue(questId);
   });
 
   afterEach(async () => {
@@ -28,18 +28,18 @@ describe('POST /tickets', () => {
     mock.restore();
   });
 
-  it('should create ticket successfully with the default priority', async () => {
+  it('should create quest successfully with the default difficulty', async () => {
     const body = { title: 'Login page is throwing 500', description: 'Users report a server error.' };
     const response = await requestMaker.post({ endpoint, body });
 
-    const ticketDb = (await dbClient.query.ticketTable.findFirst({ where: { id: ticketId } }))!;
-    checkTicket(response.data, ticketDb);
-    expect(ticketDb).toEqual({
-      id: ticketId,
+    const questDb = (await dbClient.query.questTable.findFirst({ where: { id: questId } }))!;
+    checkQuest(response.data, questDb);
+    expect(questDb).toEqual({
+      id: questId,
       title: body.title,
       description: body.description,
       status: 'open',
-      priority: 'normal',
+      difficulty: 'normal',
       internalId: expect.any(Number),
       createdAt: expect.any(Date),
       updatedAt: expect.any(Date),
@@ -47,13 +47,13 @@ describe('POST /tickets', () => {
     });
   });
 
-  it('should ignore a priority sent by the client', async () => {
-    const body = { title: 'Urgent: production checkout is down', description: 'desc', priority: 'high' } as any;
+  it('should ignore a difficulty sent by the client', async () => {
+    const body = { title: 'Urgent: production checkout is down', description: 'desc', difficulty: 'high' } as any;
     const response = await requestMaker.post({ endpoint, body });
 
-    const ticketDb = (await dbClient.query.ticketTable.findFirst({ where: { id: ticketId } }))!;
-    checkTicket(response.data, ticketDb);
-    expect(ticketDb.priority).toBe('normal');
+    const questDb = (await dbClient.query.questTable.findFirst({ where: { id: questId } }))!;
+    checkQuest(response.data, questDb);
+    expect(questDb.difficulty).toBe('normal');
   });
 
   it('should give an error if title is missing', async () => {

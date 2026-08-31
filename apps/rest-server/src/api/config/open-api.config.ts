@@ -9,7 +9,7 @@ const documentation = {
     title: 'Ticket Board API',
     version: '1.0.0',
   },
-  tags: [{ name: 'Tickets' }],
+  tags: [{ name: 'Quests' }],
 };
 
 export function configureOpenApi(app: AnyElysia) {

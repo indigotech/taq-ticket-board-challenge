@@ -1,14 +1,14 @@
 {
   "version": "8",
   "dialect": "postgres",
-  "id": "b931d297-9f56-4a89-9c10-33fae357a558",
+  "id": "8ca131bc-2664-46ca-af6b-6dbe4d3e42de",
   "prevIds": [
     "00000000-0000-0000-0000-000000000000"
   ],
   "ddl": [
     {
       "isRlsEnabled": false,
-      "name": "ticket",
+      "name": "quest",
       "entityType": "tables",
       "schema": "public"
     },
@@ -23,7 +23,7 @@
       "name": "external_id",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "integer",
@@ -34,7 +34,7 @@
       "generated": null,
       "identity": {
         "type": "always",
-        "name": "ticket_id_seq",
+        "name": "quest_id_seq",
         "increment": "1",
         "startWith": "1",
         "minValue": "1",
@@ -45,7 +45,7 @@
       "name": "id",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "varchar",
@@ -58,7 +58,7 @@
       "name": "title",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "varchar",
@@ -71,7 +71,7 @@
       "name": "description",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "varchar",
@@ -84,7 +84,7 @@
       "name": "status",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "varchar",
@@ -94,10 +94,10 @@
       "default": "'normal'",
       "generated": null,
       "identity": null,
-      "name": "priority",
+      "name": "difficulty",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "timestamp(6) with time zone",
@@ -110,7 +110,7 @@
       "name": "created_at",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "timestamp(6) with time zone",
@@ -123,7 +123,7 @@
       "name": "updated_at",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "type": "timestamp(6) with time zone",
@@ -136,16 +136,16 @@
       "name": "deleted_at",
       "entityType": "columns",
       "schema": "public",
-      "table": "ticket"
+      "table": "quest"
     },
     {
       "columns": [
         "id"
       ],
       "nameExplicit": false,
-      "name": "ticket_pkey",
+      "name": "quest_pkey",
       "schema": "public",
-      "table": "ticket",
+      "table": "quest",
       "entityType": "pks"
     },
     {
@@ -154,9 +154,9 @@
         "external_id"
       ],
       "nullsNotDistinct": false,
-      "name": "ticket_external_id_unique",
+      "name": "quest_external_id_unique",
       "schema": "public",
-      "table": "ticket",
+      "table": "quest",
       "entityType": "uniques"
     }
   ],
