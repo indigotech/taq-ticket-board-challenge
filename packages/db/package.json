@@ -1,0 +1,31 @@
+{
+  "name": "@repo/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": ["migrations", "src", "test"],
+  "license": "MIT",
+  "imports": {
+    "#root/*": "./src/*",
+    "#test/*": "./test/*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "migrate": "bunx --bun drizzle-kit migrate",
+    "migrate:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "drizzle-orm": "1.0.0-rc.4",
+    "nanoid": "5.1.16"
+  },
+  "devDependencies": {
+    "@repo/env": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "drizzle-kit": "1.0.0-rc.4",
+    "typescript": "6.0.3"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./test": "./test/index.ts"
+  }
+}

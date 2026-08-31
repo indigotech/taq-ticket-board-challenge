@@ -1,0 +1,37 @@
+{
+  "name": "ticket-board-backend",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "nx run-many -t dev --output-style=stream",
+    "lint": "oxlint && oxfmt --check .",
+    "lint:fix": "oxlint --fix && oxfmt .",
+    "migrate": "nx run-many -t migrate --output-style=stream",
+    "migrate:generate": "nx run-many -t migrate:generate --output-style=stream",
+    "nx:reset": "nx reset",
+    "packages:check": "syncpack lint",
+    "pretest": "bun run lint",
+    "test": "nx run-many -t test --output-style=stream --parallel=false",
+    "typecheck": "nx run-many -t typecheck --output-style=stream"
+  },
+  "devDependencies": {
+    "@nx/js": "23.1.0",
+    "@types/bun": "1.3.14",
+    "@types/node": "24.12.4",
+    "nx": "22.7.7",
+    "oxfmt": "0.63.0",
+    "oxlint": "1.78.0",
+    "syncpack": "14.0.0"
+  },
+  "engines": {
+    "bun": "1.4.0"
+  },
+  "overrides": {
+    "axios": "1.18.0",
+    "body-parser": "2.3.0",
+    "brace-expansion": "5.0.9",
+    "form-data": "4.0.6",
+    "qs": "6.15.3"
+  },
+  "packageManager": "bun@1.4.0",
+  "workspaces": ["apps/*", "packages/*"]
+}

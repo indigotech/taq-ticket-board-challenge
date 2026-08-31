@@ -1,0 +1,28 @@
+{
+  "name": "@repo/rest-server",
+  "version": "1.0.0",
+  "description": "Ticket Board REST API",
+  "scripts": {
+    "dev": "bun --hot ./src/index.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@elysiajs/cors": "1.4.1",
+    "@elysiajs/openapi": "1.4.14",
+    "@repo/core": "workspace:*",
+    "@repo/db": "workspace:*",
+    "@repo/env": "workspace:*",
+    "axios": "1.18.0",
+    "drizzle-orm": "1.0.0-rc.4",
+    "elysia": "1.4.28",
+    "elysia-helmet": "3.1.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "typescript": "6.0.3"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@repo/core",
+  "version": "0.1.0",
+  "private": true,
+  "files": ["src", "test"],
+  "license": "MIT",
+  "type": "module",
+  "imports": {
+    "#root/*": "./src/*",
+    "#test/*": "./test/*"
+  },
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "axios": "1.18.0",
+    "winston": "3.19.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@types/express": "5.0.6",
+    "express": "5.2.1",
+    "typescript": "6.0.3"
+  },
+  "exports": {
+    "./data": "./src/data/index.ts",
+    "./error": "./src/error/index.ts",
+    "./log": "./src/log/index.ts",
+    "./pagination": "./src/pagination/index.ts",
+    "./security": "./src/security/index.ts",
+    "./test": "./test/index.ts",
+    "./utils": "./src/utils/index.ts"
+  }
+}

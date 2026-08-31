@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "tui": {
+    "enabled": false
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": ["{workspaceRoot}/packages/tsconfig/base.tsconfig.json"],
+    "production": [
+      "default",
+      "!{projectRoot}/test/**/*",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)"
+    ]
+  },
+  "targetDefaults": {
+    "migrate": {
+      "cache": false
+    },
+    "migrate:generate": {
+      "cache": false
+    },
+    "typecheck": {
+      "cache": true
+    },
+    "test": {
+      "inputs": ["default", "^production"],
+      "outputs": ["{projectRoot}/coverage/**"],
+      "cache": true
+    },
+    "dev": {
+      "cache": false,
+      "continuous": true
+    }
+  },
+  "analytics": true
+}

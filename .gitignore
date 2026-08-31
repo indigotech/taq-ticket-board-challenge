@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+#DS
+.DS_Store
+
+# Visual Studio Code
+!.vscode/launch.json
+.vscode
+
+# Compilations
+dist/
+
+# Env files
+.env
+
+# Nx
+.nx/cache
+.nx/workspace-data
+
+# Local design notes, not versioned
+specs/

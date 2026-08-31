@@ -1,0 +1,22 @@
+{
+  "name": "@repo/env",
+  "version": "0.1.0",
+  "private": true,
+  "files": ["src"],
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "17.4.2",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "typescript": "6.0.3"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
