@@ -14,6 +14,7 @@ export const QuestResponse = z
     description: z.string(),
     status: QuestStatusEnum,
     difficulty: QuestDifficultyEnum,
+    xpReward: z.number().int().nonnegative(),
     createdAt: z.date(),
   })
   .meta({ id: 'QuestResponse' }) satisfies ZodType<Quest>;

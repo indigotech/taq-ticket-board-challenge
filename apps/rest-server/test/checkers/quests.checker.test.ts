@@ -1,6 +1,7 @@
 import { expect } from 'bun:test';
 import type { QuestEntity } from '@repo/db';
 import type { Quest, QuestDifficulty, QuestStatus } from '#domain/model/quests.model.js';
+import { calculateXpReward } from '#domain/quests/quests.utils.js';
 
 export function checkQuests(data: Quest[], entities: QuestEntity[]): void {
   expect(data).toHaveLength(entities.length);
@@ -12,12 +13,15 @@ export function checkQuest(data: Quest, entity: QuestEntity): void {
 }
 
 export function mapQuestToCheck(quest: QuestEntity): Quest {
+  const difficulty = quest.difficulty as QuestDifficulty;
+
   return {
     id: quest.id,
     title: quest.title,
     description: quest.description,
     status: quest.status as QuestStatus,
-    difficulty: quest.difficulty as QuestDifficulty,
+    difficulty,
+    xpReward: calculateXpReward(difficulty),
     createdAt: quest.createdAt,
   };
 }

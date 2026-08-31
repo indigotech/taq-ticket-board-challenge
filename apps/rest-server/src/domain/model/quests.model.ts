@@ -7,6 +7,7 @@ export interface Quest {
   description: string;
   status: QuestStatus;
   difficulty: QuestDifficulty;
+  xpReward: number;
   createdAt: Date;
 }
 

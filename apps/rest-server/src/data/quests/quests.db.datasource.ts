@@ -3,6 +3,7 @@ import { buildPageInfo } from '@repo/core/pagination';
 import { DatabaseIdGenerator, dbClient, type QuestEntity, questTable } from '@repo/db';
 import { and, count, eq, isNull } from 'drizzle-orm';
 import type { Quest, QuestInput, QuestStatus } from '#domain/model/quests.model.js';
+import { calculateXpReward } from '#domain/quests/quests.utils.js';
 
 const EXTERNAL_ID_PREFIX = 'q_';
 
@@ -42,12 +43,15 @@ export const QuestsDbDatasource = {
 };
 
 function toQuest(entity: QuestEntity): Quest {
+  const difficulty = entity.difficulty as Quest['difficulty'];
+
   return {
     id: entity.id,
     title: entity.title,
     description: entity.description,
     status: entity.status as QuestStatus,
-    difficulty: entity.difficulty as Quest['difficulty'],
+    difficulty,
+    xpReward: calculateXpReward(difficulty),
     createdAt: entity.createdAt,
   };
 }
