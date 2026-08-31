@@ -31,3 +31,11 @@ dist/
 
 # Local design notes, not versioned
 specs/
+
+# OpenCode
+.opencode/node_modules
+.opencode/package.json
+.opencode/package-lock.json
+.opencode/bun.lock
+!.opencode/logs/
+!.opencode/logs/session.jsonl
