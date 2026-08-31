@@ -11,7 +11,9 @@
     "packages:check": "syncpack lint",
     "pretest": "bun run lint",
     "test": "nx run-many -t test --output-style=stream --parallel=false",
-    "typecheck": "nx run-many -t typecheck --output-style=stream"
+    "typecheck": "nx run-many -t typecheck --output-style=stream",
+    "ios": "cd apps/mobile && npm run ios",
+    "android": "cd apps/mobile && npm run android"
   },
   "devDependencies": {
     "@nx/js": "23.1.0",
@@ -33,5 +35,5 @@
     "qs": "6.15.3"
   },
   "packageManager": "bun@1.4.0",
-  "workspaces": ["apps/*", "packages/*"]
+  "workspaces": ["apps/*", "!apps/mobile", "packages/*"]
 }
