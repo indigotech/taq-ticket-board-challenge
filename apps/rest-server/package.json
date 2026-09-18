@@ -1,7 +1,7 @@
 {
   "name": "@repo/rest-server",
   "version": "1.0.0",
-  "description": "Ticket Board REST API",
+  "description": "Quest Board REST API",
   "scripts": {
     "dev": "bun --hot ./src/index.ts",
     "test": "bun test",

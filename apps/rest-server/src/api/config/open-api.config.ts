@@ -6,7 +6,7 @@ import { Env } from '#env/index.js';
 const OPEN_API_PATH = '/docs';
 const documentation = {
   info: {
-    title: 'Ticket Board API',
+    title: 'Quest Board API',
     version: '1.0.0',
   },
   tags: [{ name: 'Quests' }],

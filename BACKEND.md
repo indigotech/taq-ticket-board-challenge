@@ -1,6 +1,6 @@
-# Ticket Board — Backend
+# Quest Board — Backend
 
-Elysia REST API for the Ticket Board challenge: an Nx monorepo with Bun as runtime, package manager and test
+Elysia REST API for the Quest Board challenge: an Nx monorepo with Bun as runtime, package manager and test
 runner.
 
 ## Stack
